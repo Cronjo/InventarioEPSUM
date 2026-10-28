@@ -1,17 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BotonReinicio : MonoBehaviour
 {
-    [SerializeField] private InventarioScriptableObjects objeto;
-    [SerializeField] private InventarioScriptableObjects objeto1;
-    [SerializeField] private InventarioScriptableObjects objeto2;
+    [SerializeField] private InventarioScriptableObjects[] objetos;
 
+    [ContextMenu("Reiniciar cantidades de los objetos")]
     public void ReiniciarValores()
     {
-        objeto.Cantidad = 0;
-        objeto1.Cantidad = 0;
-        objeto2.Cantidad = 0;
+        foreach (InventarioScriptableObjects item in objetos)
+        {
+            if (item != null)
+            {
+                item.Cantidad = 0;
+            }
+        }
     }
 }
