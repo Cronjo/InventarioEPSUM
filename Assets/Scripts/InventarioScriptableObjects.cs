@@ -9,6 +9,9 @@ public class InventarioScriptableObjects : ScriptableObject
     public int Cantidad;
     public Sprite Icono;
     public TipoItem tipoItem;
+
+    // Posición en el inventario 
+    public int indiceSlot = -1;
 }
 
 public enum TipoItem {Espada, Collar, Moneda}

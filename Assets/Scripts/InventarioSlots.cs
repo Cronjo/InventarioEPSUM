@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InventarioSlots : MonoBehaviour
@@ -6,6 +7,34 @@ public class InventarioSlots : MonoBehaviour
 
     [SerializeField] private Sprite spriteVacio; //No quiero que quede una imagen en blanco, si no 
 
+    // Como quiero que al iniciar la escena, cargue en el inventario aquellos objetos que aun tenian unidades, creo un array con mis Scriptable Objects
+    [SerializeField] private InventarioScriptableObjects[] todosLosItems;
+
+    private void Start()
+    {
+        RestaurarInventario();
+    }
+
+    private void RestaurarInventario()
+    {
+        for (int i = 0; i < todosLosItems.Length; i++)
+        {
+            Debug.Log(todosLosItems[i]);
+            Debug.Log("Mayonesa");
+            if (todosLosItems[i].Cantidad > 0 && todosLosItems[i].indiceSlot >= 0)
+            {
+                
+                int pos = todosLosItems[i].indiceSlot;
+
+                if (pos < slots.Length)
+                {
+                    slots[pos].objetoEnSlot = todosLosItems[i];
+                    slots[pos].icono.sprite = todosLosItems[i].Icono;
+                    slots[pos].textoCantidad.text = todosLosItems[i].Cantidad.ToString();
+                }
+            }
+        }
+    }
     public void AñadirItem(InventarioScriptableObjects objeto)
     {
         //Primero, busca si el objeto existe en algun slot 
@@ -34,15 +63,19 @@ public class InventarioSlots : MonoBehaviour
                 if (colocado == false && slots[i].estaLleno == false)
                 {
                     slots[i].objetoEnSlot = objeto;
-                    slots[i].objetoEnSlot.Cantidad = 1;
                     slots[i].icono.sprite = objeto.Icono;
-                    slots[i].textoCantidad.text = "1";
+                    slots[i].objetoEnSlot.Cantidad++;
+                    slots[i].objetoEnSlot.indiceSlot = i;   // Guarda la posición en el array para el inventario 
+                    slots[i].textoCantidad.text = slots[i].objetoEnSlot.Cantidad.ToString(); 
                     colocado = true;
                 }
             }
-        }
 
-        
+            if (colocado == false) //Si no hay slots vacios entonces inventario lleno
+            {
+                Debug.Log("Inventario lleno");
+            }
+        }
     }
 
     //Tercero, eliminar una unidad al dar click al slot
@@ -54,6 +87,7 @@ public class InventarioSlots : MonoBehaviour
 
             if (slots[indiceSlot].objetoEnSlot.Cantidad <= 0) //Si llega a 0 limpia el slot
             {
+                slots[indiceSlot].objetoEnSlot.indiceSlot = -1;   //Deja libre la posición en el inventario
                 slots[indiceSlot].objetoEnSlot = null;
                 slots[indiceSlot].icono.sprite = spriteVacio;
                 slots[indiceSlot].textoCantidad.text = ".";
