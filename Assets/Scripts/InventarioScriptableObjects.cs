@@ -11,4 +11,4 @@ public class InventarioScriptableObjects : ScriptableObject
     public TipoItem tipoItem;
 }
 
-public enum TipoItem { Espada, Collar, Moneda}
+public enum TipoItem {Espada, Collar, Moneda}
