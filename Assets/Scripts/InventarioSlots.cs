@@ -4,6 +4,8 @@ public class InventarioSlots : MonoBehaviour
 {
     [SerializeField] private Slot[] slots;
 
+    [SerializeField] private Sprite spriteVacio; //No quiero que quede una imagen en blanco, si no 
+
     public void AñadirItem(InventarioScriptableObjects objeto)
     {
         //Primero, busca si el objeto existe en algun slot 
@@ -39,7 +41,30 @@ public class InventarioSlots : MonoBehaviour
                 }
             }
         }
+
+        
     }
+
+    //Tercero, eliminar una unidad al dar click al slot
+    public void EliminarItem(int indiceSlot)
+    {
+        if (slots[indiceSlot].estaLleno) //Busca si hay algun objeto en el slot clickado (1, 2 o 3)
+        {
+            slots[indiceSlot].objetoEnSlot.Cantidad--; //Resta una unidad
+
+            if (slots[indiceSlot].objetoEnSlot.Cantidad <= 0) //Si llega a 0 limpia el slot
+            {
+                slots[indiceSlot].objetoEnSlot = null;
+                slots[indiceSlot].icono.sprite = spriteVacio;
+                slots[indiceSlot].textoCantidad.text = ".";
+            }
+            else
+            {
+                slots[indiceSlot].textoCantidad.text = slots[indiceSlot].objetoEnSlot.Cantidad.ToString(); // Si no, se asegura de poner el valor de la cantidad
+            }
+        }
+    }
+
     #region Codigo inutil de pruebas
 
     /*[SerializeField] private TMP_Text[] textosCantidad;
