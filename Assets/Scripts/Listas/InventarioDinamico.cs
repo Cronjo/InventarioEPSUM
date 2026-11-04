@@ -8,9 +8,40 @@ public class InventarioDinamico : MonoBehaviour
     [SerializeField] private int slotsVisibles = 3; // Slots que inician
     [SerializeField] private int maximoSlotsPosibles = 6; // Cantidad maxima slots
     [SerializeField] private Sprite spriteVacio; //No quiero que quede una imagen en blanco
+
+    [Header("Persistencia objetos")]
+    [SerializeField] private List<InventarioScriptableObjects> todosLosScriptableObjects;
     private void Start()
     {
+        RestaurarInventario();
         ActualizarVisibilidadSlots();
+        RefrescarUI();
+    }
+
+    //Restaurar inventario en el start
+    private void RestaurarInventario()
+    {
+        // Limpiamos los slots de la UI
+        for (int i = 0; i < slots.Count; i++)
+        {
+            slots[i].objetoEnSlot = null;
+        }
+
+        int slotIndex = 0;
+
+        // Recorre los SO y los coloca de forma continua en las casillas visibles
+        foreach (var itemSO in todosLosScriptableObjects)
+        {
+            if (itemSO != null && itemSO.Cantidad > 0)
+            {
+                if (slotIndex < slotsVisibles)
+                {
+                    slots[slotIndex].objetoEnSlot = itemSO;
+                    slotIndex++;
+                }
+            }
+        }
+
         RefrescarUI();
     }
 
@@ -92,7 +123,7 @@ public class InventarioDinamico : MonoBehaviour
     {
         List<InventarioScriptableObjects> itemsActuales = new List<InventarioScriptableObjects>();
 
-        // Agrupa todos los objetos que quedan en las casillas visibles en una lista
+        //Agrupa todos los objetos que quedan en las casillas visibles en una lista
         for (int i = 0; i < slotsVisibles; i++)
         {
             if (slots[i].estaLleno)
@@ -102,7 +133,7 @@ public class InventarioDinamico : MonoBehaviour
             }
         }
 
-        // Recoloca desde el primer espacio
+        //Recoloca desde el primer espacio
         for (int i = 0; i < itemsActuales.Count; i++) 
         {
             slots[i].objetoEnSlot = itemsActuales[i];

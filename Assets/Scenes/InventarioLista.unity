@@ -416,14 +416,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df624fd99e6a0849acc885e3b7ee1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escenaCargar: InventarioArray1
+  escenaCargar: InventarioLista1
   escenaBoton: InventarioArray
 --- !u!61 &542141047
 BoxCollider2D:
@@ -7422,9 +7422,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7838,14 +7838,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8099,9 +8099,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8520,6 +8520,11 @@ MonoBehaviour:
   slotsVisibles: 3
   maximoSlotsPosibles: 6
   spriteVacio: {fileID: 21300000, guid: ed1074391f139544d941ae0870937dc0, type: 3}
+  todosLosScriptableObjects:
+  - {fileID: 11400000, guid: a25cd7f17b94c2142835dea3d366fb4f, type: 2}
+  - {fileID: 11400000, guid: 3020b88ea1e4c21479eb0e2e39f20128, type: 2}
+  - {fileID: 11400000, guid: 2319999571841194898837d67176e6d0, type: 2}
+  - {fileID: 11400000, guid: 2cabca1a4050ac54e884ce2906e3f324, type: 2}
 --- !u!1 &1173765372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8814,9 +8819,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9151,9 +9156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventarioSlots, Assembly-CSharp
-        m_MethodName: EliminarItem
+      - m_Target: {fileID: 1167190426}
+        m_TargetAssemblyTypeName: InventarioDinamico, Assembly-CSharp
+        m_MethodName: EliminarItemLista
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
