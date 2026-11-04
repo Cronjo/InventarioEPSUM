@@ -5,25 +5,22 @@ public class InventarioSlots : MonoBehaviour
 {
     [SerializeField] private Slot[] slots;
 
-    [SerializeField] private Sprite spriteVacio; //No quiero que quede una imagen en blanco, si no 
+    [SerializeField] private Sprite spriteVacio; //No quiero que quede una imagen en blanco
 
     // Como quiero que al iniciar la escena, cargue en el inventario aquellos objetos que aun tenian unidades, creo un array con mis Scriptable Objects
     [SerializeField] private InventarioScriptableObjects[] todosLosItems;
 
     private void Start()
     {
-        RestaurarInventario();
+        RestaurarInventario(); //Esto verifica si hay aun unidades de un objeto - del array de objetos y los vuelve a poner en en inventario al cargar la escena
     }
 
     private void RestaurarInventario()
     {
         for (int i = 0; i < todosLosItems.Length; i++)
         {
-            Debug.Log(todosLosItems[i]);
-            Debug.Log("Mayonesa");
             if (todosLosItems[i].Cantidad > 0 && todosLosItems[i].indiceSlot >= 0)
             {
-                
                 int pos = todosLosItems[i].indiceSlot;
 
                 if (pos < slots.Length)
