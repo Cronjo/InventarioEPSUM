@@ -14,6 +14,7 @@ public class InventarioDinamico : MonoBehaviour
         if (objeto.esItemEspecial == true)
         {
             AumentarCapacidad(1); // Si es, entonces suma la cantidad que pase como parametro de entrada
+            return;
         }
 
         else
@@ -24,6 +25,7 @@ public class InventarioDinamico : MonoBehaviour
                 {
                     slots[i].objetoEnSlot.Cantidad++;
                     slots[i].textoCantidad.text = slots[i].objetoEnSlot.Cantidad.ToString();
+                    return;
                 }
             }
 
@@ -35,12 +37,19 @@ public class InventarioDinamico : MonoBehaviour
                     slots[i].icono.sprite = objeto.Icono;
                     slots[i].objetoEnSlot.Cantidad++;
                     slots[i].textoCantidad.text = slots[i].objetoEnSlot.Cantidad.ToString();
-
+                    return;
                 }
             }
+
+            Debug.Log("Inventario lleno");
+
         }
     }
 
+    public void EliminarItemLista()
+    {
+        
+    }
     public void AumentarCapacidad(int ranurasExtra)
     {
         capacidadMaxima += ranurasExtra; //Sumo la cantidad que se ponga en el parametro de entrada

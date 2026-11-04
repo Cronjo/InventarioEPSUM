@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 [System.Serializable]
 public class Slot
 {
+    public GameObject gameObjectSlot; // Para hacer SetActive(true/false)
     public Image icono;
     public TMP_Text textoCantidad;
     public InventarioScriptableObjects objetoEnSlot;
